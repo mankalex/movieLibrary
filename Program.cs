@@ -16,7 +16,33 @@ string? resp = Console.ReadLine();
 
 if(resp == "1")
 {
+    //create file
+    StreamWriter sw = new StreamWriter("data.csv");
 
+    //prompt user for movie id
+    Console.WriteLine("What Movie Id will this be?");
+    string? resp1 = Console.ReadLine();
+    if(String.IsNullOrEmpty(resp1)){
+        logger.Error("Enter a valid Movie ID");
+    }
+
+    //prompt user for title
+    Console.WriteLine("What is the Title?");
+    string? resp2 = Console.ReadLine();
+    if(String.IsNullOrEmpty(resp2)){
+        logger.Error("Enter a valid Title");
+    }
+
+    //prompt user for genre
+    Console.WriteLine("What is the Genre? (If multiple separate with | )");
+    string? resp3 = Console.ReadLine();
+    if(String.IsNullOrEmpty(resp3)){
+        logger.Error("Enter a valid Genre");
+    }
+
+    //writes data in file
+    sw.WriteLine(resp1 + "," + resp2 + "," + resp3);
+    sw.Close();
 }
 else if(resp == "2")
 {
